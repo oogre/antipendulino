@@ -60,15 +60,13 @@ void loop()
   // IF TOUCHING THE END ?
   // ALERT MAXMSP
   // STOP MOVE
-  
   END_RIGHT_VALUE = digitalRead(END_RIGHT_PIN);
   END_LEFT_VALUE = digitalRead(END_LEFT_PIN);
-  
-  if(  cmd.type!=0 &&  (HIGH == END_LEFT_VALUE || HIGH == END_RIGHT_VALUE) )
+  if(cmd.type != 0 && ((HIGH == cmd.direction && HIGH == END_LEFT_VALUE) || (LOW == cmd.direction && HIGH == END_RIGHT_VALUE)))
   {
       Serial.write(END_RIGHT_VALUE);
       Serial.write(END_LEFT_VALUE);
-      Serial.write(' ');
+      Serial.print(' ');
       cmd.type = 0;
       cmd.direction = 0;
       cmd.distanceToRun = 0;
