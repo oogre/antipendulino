@@ -42,7 +42,7 @@ CMD cmd = {
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(DIRERCTIONAL_PIN, OUTPUT);
   pinMode(MOVE_PIN, OUTPUT);
   pinMode(END_LEFT_PIN,INPUT);
