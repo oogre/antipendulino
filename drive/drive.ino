@@ -59,7 +59,8 @@ void loop()
   
   END_RIGHT_VALUE = digitalRead(END_RIGHT_PIN);
   END_LEFT_VALUE = digitalRead(END_LEFT_PIN);
-  if( HIGH == END_LEFT_VALUE || HIGH == END_RIGHT_VALUE )
+  
+  if(  cmd.type!=0 &&  (HIGH == END_LEFT_VALUE || HIGH == END_RIGHT_VALUE) )
   {
       Serial.write(END_RIGHT_VALUE);
       Serial.write(END_LEFT_VALUE);
